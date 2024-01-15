@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  background-color: rgb(238, 238, 238);
+  padding: 1rem 3rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.25rem;
+}
+header i {
+  font-size: 1.6rem;
+}
+header nav {
+  display: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main h1 {
+  text-align: center;
+  width: 100%;
+  padding-top: 15vh;
+  font-size: 1.8rem;
+  height: 35vh;
+  background-color: rgb(204, 221, 238);
+}
+main h2 {
+  position: relative;
+  top: 1rem;
+  font-size: 1.25rem;
+}
+main div.wrap {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem;
+}
+main div.wrap .square {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgb(136, 153, 170);
+  width: 90%;
+  height: 30vh;
+  text-align: center;
+}
+main div.action {
+  background-color: rgb(221, 238, 255);
+  padding: 1rem;
+  margin: -0.5rem;
+}
+
+@media screen and (min-width: 500px) {
+  #logo {
+    transition: 3s;
+    font-size: 1rem;
+  }
+  main div.wrap {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  main div.wrap .square {
+    flex: 1 1 40%;
+    height: 25vh;
+  }
+}
+@media screen and (min-width: 800px) {
+  div.icon {
+    display: none;
+  }
+  header {
+    justify-content: space-between;
+  }
+  header nav {
+    display: inline-block;
+    width: 30vw;
+  }
+  header nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  header nav ul li {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  main div.wrap {
+    width: 1139px;
+  }
+}/*# sourceMappingURL=style.css.map */
