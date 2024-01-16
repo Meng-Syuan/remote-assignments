@@ -1,12 +1,15 @@
+header,
+main,
+main .wrap {
+  display: flex;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 header {
-  display: flex;
-  background-color: rgb(238, 238, 238);
+  background-color: #eee;
   padding: 1rem 3rem;
   justify-content: space-between;
   align-items: center;
@@ -18,9 +21,7 @@ header i {
 header nav {
   display: none;
 }
-
 main {
-  display: flex;
   flex-direction: column;
   align-items: center;
 }
@@ -30,7 +31,7 @@ main h1 {
   padding-top: 15vh;
   font-size: 1.8rem;
   height: 35vh;
-  background-color: rgb(204, 221, 238);
+  background-color: #cde;
 }
 main h2 {
   position: relative;
@@ -39,7 +40,6 @@ main h2 {
 }
 main .wrap {
   width: 95%;
-  display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1.5rem;
@@ -47,18 +47,17 @@ main .wrap {
 main .wrap .square {
   margin: 0.5rem;
   padding: 0.5rem;
-  background-color: rgb(136, 153, 170);
+  background-color: #89a;
   width: 90%;
   height: 30vh;
   text-align: center;
 }
 main div.action {
-  background-color: rgb(221, 238, 255);
+  background-color: #def;
   padding: 1rem;
   margin-top: -0.5rem;
   margin-bottom: 2rem;
 }
-
 @media screen and (min-width: 500px) {
   #logo {
     transition: 3s;
@@ -97,4 +96,4 @@ main div.action {
   main div.wrap {
     width: 1139px;
   }
-}/*# sourceMappingURL=style.css.map */
+}
