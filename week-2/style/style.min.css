@@ -1,0 +1,134 @@
+header,
+main h2 {
+  position: relative;
+}
+header,
+main,
+main .wrap {
+  display: flex;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  background-color: #eee;
+  padding: 1rem 3rem;
+  justify-content: space-between;
+  align-items: center;
+}
+header #close-icon,
+header #menu-icon {
+  font-size: 1.5rem;
+}
+header #close-icon i:hover,
+header #menu-icon i:hover {
+  cursor: pointer;
+}
+header nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  box-shadow: -2px 0 1rem 0 rgba(0, 0, 0, 0.3);
+  transform: translateX(105%);
+  background-color: #fff;
+  width: 50vw;
+  padding-left: 0.5rem;
+  height: 100%;
+  z-index: 1;
+}
+header nav #close-icon {
+  position: absolute;
+  right: 8%;
+  padding: 1rem;
+}
+header nav ul {
+  margin: 2rem 0 0 1rem;
+  list-style-type: none;
+}
+header nav ul li {
+  padding: 1rem 0;
+}
+main {
+  flex-direction: column;
+  align-items: center;
+}
+main h1 {
+  text-align: center;
+  width: 100%;
+  padding-top: 15vh;
+  font-size: 1.8rem;
+  min-height: 35vh;
+  background-color: #cde;
+}
+main h2 {
+  top: 1rem;
+  font-size: 1.25rem;
+}
+main .wrap {
+  width: 95%;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem;
+}
+main .wrap .square {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: #89a;
+  width: 90%;
+  height: 30vh;
+  text-align: center;
+}
+main .more {
+  display: none;
+}
+main button#action {
+  background-color: #def;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media screen and (min-width: 500px) {
+  #logo {
+    transition: 3s;
+    font-size: 1rem;
+  }
+  main .wrap {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  main .wrap .square {
+    width: 43%;
+  }
+}
+@media screen and (min-width: 800px) {
+  #close-icon,
+  #menu-icon,
+  header nav #close-tag {
+    display: none;
+  }
+  header nav {
+    position: static;
+    display: inline-block;
+    width: 30vw;
+    box-shadow: none;
+    transform: translateX(0);
+    background-color: #eee;
+    height: 1.6rem;
+    padding-left: 0;
+  }
+  header nav ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+  }
+  header nav ul li {
+    padding: 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  main div.wrap {
+    width: 1139px;
+  }
+}
