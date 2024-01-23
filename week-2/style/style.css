@@ -10,29 +10,50 @@ header {
   padding: 1rem 3rem;
   justify-content: space-between;
   align-items: center;
-  position: relative;
 }
-header #menu-icon,
-header #close-icon {
+header button {
   font-size: 1.5rem;
+  border: none;
 }
-header #menu-icon i:hover,
-header #close-icon i:hover {
+header button#menu-btn {
+  background-color: rgb(238, 238, 238);
+}
+header button#close-btn {
+  background-color: #fff;
+}
+header button:hover {
   cursor: pointer;
 }
 header nav {
   position: fixed;
-  right: 0;
+  left: 100%;
   top: 0;
   box-shadow: -2px 0 1rem 0 rgba(0, 0, 0, 0.3);
-  transform: translateX(105%);
   background-color: white;
   width: 50vw;
   padding-left: 0.5rem;
   height: 100%;
   z-index: 1;
+  font-size: 1.5rem;
 }
-header nav #close-icon {
+@media (max-width: 800px) {
+  header nav {
+    transform: translateX(0);
+    transition: 0.3s;
+    opacity: 0;
+  }
+  header nav.toggle {
+    transform: translateX(-100%);
+    transition: 0.3s;
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 800px) {
+  header nav {
+    font-size: 1.25rem;
+  }
+}
+header nav #close-btn {
   position: absolute;
   right: 8%;
   padding: 1rem;
@@ -88,10 +109,6 @@ main button#action {
 }
 
 @media screen and (min-width: 500px) {
-  #logo {
-    transition: 3s;
-    font-size: 1rem;
-  }
   main .wrap {
     flex-direction: row;
     flex-wrap: wrap;
@@ -102,22 +119,19 @@ main button#action {
   }
 }
 @media screen and (min-width: 800px) {
-  #menu-icon,
-  #close-icon {
+  #menu-btn,
+  #close-btn {
     display: none;
   }
   header nav {
     position: static;
     display: inline-block;
-    width: 30vw;
+    width: 40vw;
     box-shadow: none;
-    transform: translateX(0%);
     background-color: rgb(238, 238, 238);
     height: 1.6rem;
     padding-left: 0;
-  }
-  header nav #close-tag {
-    display: none;
+    opacity: 1;
   }
   header nav ul {
     display: flex;

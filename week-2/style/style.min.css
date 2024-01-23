@@ -1,6 +1,10 @@
 header,
-main h2 {
-  position: relative;
+header button#menu-btn {
+  background-color: #eee;
+}
+header button#close-btn,
+header nav {
+  background-color: #fff;
 }
 header,
 main,
@@ -13,32 +17,41 @@ main .wrap {
   box-sizing: border-box;
 }
 header {
-  background-color: #eee;
   padding: 1rem 3rem;
   justify-content: space-between;
   align-items: center;
 }
-header #close-icon,
-header #menu-icon {
+header button {
   font-size: 1.5rem;
+  border: none;
 }
-header #close-icon i:hover,
-header #menu-icon i:hover {
+header button:hover {
   cursor: pointer;
 }
 header nav {
   position: fixed;
-  right: 0;
+  left: 100%;
   top: 0;
   box-shadow: -2px 0 1rem 0 rgba(0, 0, 0, 0.3);
-  transform: translateX(105%);
-  background-color: #fff;
   width: 50vw;
   padding-left: 0.5rem;
   height: 100%;
   z-index: 1;
+  font-size: 1.5rem;
 }
-header nav #close-icon {
+@media (max-width: 800px) {
+  header nav {
+    transform: translateX(0);
+    transition: 0.3s;
+    opacity: 0;
+  }
+  header nav.toggle {
+    transform: translateX(-100%);
+    transition: 0.3s;
+    opacity: 1;
+  }
+}
+header nav #close-btn {
   position: absolute;
   right: 8%;
   padding: 1rem;
@@ -63,6 +76,7 @@ main h1 {
   background-color: #cde;
 }
 main h2 {
+  position: relative;
   top: 1rem;
   font-size: 1.25rem;
 }
@@ -89,10 +103,6 @@ main button#action {
   margin-bottom: 1.5rem;
 }
 @media screen and (min-width: 500px) {
-  #logo {
-    transition: 3s;
-    font-size: 1rem;
-  }
   main .wrap {
     flex-direction: row;
     flex-wrap: wrap;
@@ -103,20 +113,20 @@ main button#action {
   }
 }
 @media screen and (min-width: 800px) {
-  #close-icon,
-  #menu-icon,
-  header nav #close-tag {
-    display: none;
-  }
   header nav {
+    font-size: 1.25rem;
     position: static;
     display: inline-block;
-    width: 30vw;
+    width: 40vw;
     box-shadow: none;
-    transform: translateX(0);
     background-color: #eee;
     height: 1.6rem;
     padding-left: 0;
+    opacity: 1;
+  }
+  #close-btn,
+  #menu-btn {
+    display: none;
   }
   header nav ul {
     display: flex;

@@ -1,7 +1,28 @@
 $breakpoint-large: 1200px;
 $breakpoint-medium: 800px;
 $breakpoint-small: 500px;
+@mixin smallScreen {
+  @media screen and (min-width: $breakpoint-small) {
+    @content;
+  }
+}
+@mixin mediumScreen {
+  @media screen and (min-width: $breakpoint-medium) {
+    @content;
+  }
+}
 
+@mixin largeScreen {
+  @media screen and (min-width: $breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin toggle {
+  @media (max-width: 800px) {
+    @content;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -15,26 +36,46 @@ header {
   padding: 1rem 3rem;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  #menu-icon,
-  #close-icon {
+  button {
     font-size: 1.5rem;
-    i:hover {
+    border: none;
+    &#menu-btn {
+      background-color: rgb(238, 238, 238);
+    }
+    &#close-btn {
+      background-color: #fff;
+    }
+    &:hover {
       cursor: pointer;
     }
   }
+
   nav {
     position: fixed;
-    right: 0;
+    left: 100%;
     top: 0;
     box-shadow: -2px 0 1rem 0 rgba(0, 0, 0, 0.3);
-    transform: translateX(105%);
     background-color: white;
     width: 50vw;
     padding-left: 0.5rem;
     height: 100%;
     z-index: 1;
-    #close-icon {
+    font-size: 1.5rem;
+    @include toggle {
+      transform: translateX(0);
+      transition: 0.3s;
+      opacity: 0;
+      &.toggle {
+        transform: translateX(-100%);
+        transition: 0.3s;
+        opacity: 1;
+      }
+    }
+    @include mediumScreen {
+      font-size: 1.25rem;
+    }
+
+    #close-btn {
       position: absolute;
       right: 8%;
       padding: 1rem;
@@ -95,11 +136,7 @@ main {
 
 //Layout when screen width >= 500px and < 800px
 
-@media screen and (min-width: $breakpoint-small) {
-  #logo {
-    transition: 3s;
-    font-size: 1rem;
-  }
+@include smallScreen {
   main {
     .wrap {
       flex-direction: row;
@@ -113,25 +150,22 @@ main {
 }
 
 // Layout when screen width >= 800px and < 1200px
-@media screen and (min-width: $breakpoint-medium) {
-  #menu-icon,
-  #close-icon {
+@include mediumScreen {
+  #menu-btn,
+  #close-btn {
     display: none;
   }
-
   header {
     nav {
       position: static;
       display: inline-block;
-      width: 30vw;
+      width: 40vw;
       box-shadow: none;
-      transform: translateX(0%);
       background-color: rgb(238, 238, 238);
       height: 1.6rem;
       padding-left: 0;
-      #close-tag {
-        display: none;
-      }
+      opacity: 1;
+
       ul {
         display: flex;
         justify-content: space-between;
@@ -143,7 +177,8 @@ main {
     }
   }
 }
-@media screen and (min-width: $breakpoint-large) {
+
+@include largeScreen {
   main {
     div.wrap {
       width: 1139px;
