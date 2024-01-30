@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum the number</title>
+    <link rel="stylesheet" href="/stylesheet/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>數字加總小工具</h1>
+      <p>輸入一個正整數，按下按鈕，將為您計算從 1 開始到該正整數的總和 :)</p>
+    </header>
+
+    <div>
+      <label for="number">請輸入正整數 → </label>
+      <input type="text" name="number" id="number" />
+      <button onclick="sum()">計算</button>
+      <div id="result">計算結果為：<span id="answer">____</span></div>
+    </div>
+
+    <script>
+      function sum() {
+        const input = document.getElementById("number").value;
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            document.getElementById("answer").innerHTML = xhr.responseText;
+          } else if (xhr.status !== 200) {
+            console.log(`Oops! Error status: ${xhr.status}`);
+            // ↑↑ 第30行不知道為什麼就算是給正確的數字仍會在控制台顯示出來，而且status 也不是 xhr的 status，很常看到 0
+          }
+        };
+        xhr.open("get", `/getData?number=${input}`);
+        xhr.send();
+      }
+    </script>
+  </body>
+</html>

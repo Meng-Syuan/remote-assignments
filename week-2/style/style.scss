@@ -61,13 +61,12 @@ header {
     height: 100%;
     z-index: 1;
     font-size: 1.5rem;
+    transition: 0.3s;
     @include toggle {
       transform: translateX(0);
-      transition: 0.3s;
       opacity: 0;
       &.toggle {
         transform: translateX(-100%);
-        transition: 0.3s;
         opacity: 1;
       }
     }

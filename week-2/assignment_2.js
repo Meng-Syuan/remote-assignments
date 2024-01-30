@@ -1,10 +1,7 @@
 //Assignment 2: Function and Object
 //Complete the function below to calculate the result of the passing object.
 
-function calculate(args) {
-  const n1 = Object.values(args)[0];
-  const n2 = Object.values(args)[1];
-  const op = Object.values(args)[2];
+function calculate({ n1, n2, op }) {
   if (op === "+") {
     return n1 + n2;
   } else if (op === "-") {

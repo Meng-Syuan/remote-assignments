@@ -3,12 +3,13 @@
 // discount.
 
 function calculate(data) {
+  let discount = Object.values(data)[0];
   let products = Object.values(data)[1];
   let priceSum = 0;
   for (let i = 0; i < products.length; i++) {
     priceSum += Object.values(products[i])[1];
   }
-  return priceSum * Object.values(data)[0];
+  return priceSum * (1 - discount);
 }
 
 const discountedPrice = calculate({
