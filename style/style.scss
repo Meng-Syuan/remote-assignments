@@ -1,0 +1,182 @@
+$breakpoint-large: 1200px;
+$breakpoint-medium: 800px;
+$breakpoint-small: 500px;
+@mixin smallScreen {
+  @media screen and (min-width: $breakpoint-small) {
+    @content;
+  }
+}
+@mixin mediumScreen {
+  @media screen and (min-width: $breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin largeScreen {
+  @media screen and (min-width: $breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin toggle {
+  @media (max-width: 800px) {
+    @content;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Layout when screen width < 500px
+header {
+  display: flex;
+  background-color: rgb(238, 238, 238);
+  padding: 1rem 3rem;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    font-size: 1.5rem;
+    border: none;
+    &#menu-btn {
+      background-color: rgb(238, 238, 238);
+    }
+    &#close-btn {
+      background-color: #fff;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  nav {
+    position: fixed;
+    left: 100%;
+    top: 0;
+    box-shadow: -2px 0 1rem 0 rgba(0, 0, 0, 0.3);
+    background-color: white;
+    width: 50vw;
+    padding-left: 0.5rem;
+    height: 100%;
+    z-index: 1;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    @include toggle {
+      transform: translateX(0);
+      opacity: 0;
+      &.toggle {
+        transform: translateX(-100%);
+        opacity: 1;
+      }
+    }
+    @include mediumScreen {
+      font-size: 1.25rem;
+    }
+
+    #close-btn {
+      position: absolute;
+      right: 8%;
+      padding: 1rem;
+    }
+    ul {
+      margin: 2rem 0 0 1rem;
+      list-style-type: none;
+      li {
+        padding: 1rem 0;
+      }
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    text-align: center;
+    width: 100%;
+    padding-top: 15vh;
+    font-size: 1.8rem;
+    min-height: 35vh;
+    background-color: rgb(204, 221, 238);
+  }
+  h2 {
+    position: relative;
+    top: 1rem;
+    font-size: 1.25rem;
+  }
+  .container {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem;
+    .content {
+      margin: 0.5rem;
+      padding: 0.5rem;
+      background-color: rgb(136, 153, 170);
+      width: 90%;
+      min-height: 25vh;
+      text-align: center;
+    }
+  }
+
+  button#action {
+    background-color: rgb(221, 238, 255);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+//Layout when screen width >= 500px and < 800px
+
+@include smallScreen {
+  main {
+    .container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      .content {
+        width: 43%;
+      }
+    }
+  }
+}
+
+// Layout when screen width >= 800px and < 1200px
+@include mediumScreen {
+  #menu-btn,
+  #close-btn {
+    display: none;
+  }
+  header {
+    nav {
+      position: static;
+      display: inline-block;
+      width: 40vw;
+      box-shadow: none;
+      background-color: rgb(238, 238, 238);
+      height: 1.6rem;
+      padding-left: 0;
+      opacity: 1;
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        li {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+@include largeScreen {
+  main {
+    div.container {
+      width: 1139px;
+    }
+  }
+}
