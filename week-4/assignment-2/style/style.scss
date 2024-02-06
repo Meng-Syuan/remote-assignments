@@ -1,0 +1,33 @@
+$border-setting: 1px dashed #333;
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #eee;
+
+  h1 {
+    display: flex;
+    align-items: center;
+    min-height: 25vh;
+  }
+  table {
+    border: $border-setting;
+    border-collapse: collapse;
+    width: 65vw;
+    font-size: 1.25rem;
+    margin: auto;
+
+    th {
+      border-left: $border-setting;
+      border-bottom: $border-setting;
+      padding: 1.25rem;
+    }
+    tr {
+      td {
+        border-left: $border-setting;
+        padding: 1.25rem;
+      }
+    }
+  }
+}

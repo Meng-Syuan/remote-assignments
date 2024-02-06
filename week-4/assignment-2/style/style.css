@@ -1,0 +1,27 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #eee;
+}
+body h1 {
+  display: flex;
+  align-items: center;
+  min-height: 25vh;
+}
+body table {
+  border: 1px dashed #333;
+  border-collapse: collapse;
+  width: 65vw;
+  font-size: 1.25rem;
+  margin: auto;
+}
+body table th {
+  border-left: 1px dashed #333;
+  border-bottom: 1px dashed #333;
+  padding: 1.25rem;
+}
+body table tr td {
+  border-left: 1px dashed #333;
+  padding: 1.25rem;
+}/*# sourceMappingURL=style.css.map */
